@@ -15,7 +15,7 @@ async function getdata_byQuery() {
     try {
       let pool = await sql.connect(config);
       
-      let res = await pool.request().query("SELECT ProductID, Product, num_units, supplier FROM [dbo].[Inventory]");
+      let res = await pool.request().query("SELECT ProductID, ProductName, Units, Supplier FROM [dbo].[Inventory]");
       // select * from dbo.['Data File$']                                                                                                                                                                                                                                                                                                                                                                                
 
       return res.recordsets;
