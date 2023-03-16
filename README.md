@@ -1,3 +1,3 @@
-#flytag api <br/><br/>
+#Kaftab API <br/><br/>
 to run this:<br/>
-npm start
+npx nodemon index
