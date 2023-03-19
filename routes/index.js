@@ -1,5 +1,6 @@
 const { json } = require('express');
 var express = require('express');
+var cors = require('cors');
 
 
 var router = express.Router();
@@ -24,7 +25,11 @@ router.get("/getdata_byQuery", function (req, res, next) {
   });
 });
 
-
+router.post("/post", function (req, res, next) {
+  sql.post().then((result) => {
+    res.json(result[0]);
+  });
+});
 
 
 module.exports = router;
