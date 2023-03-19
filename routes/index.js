@@ -5,6 +5,8 @@ var cors = require('cors');
 
 var router = express.Router();
 const sql = require("../dboperation");
+const dboperation = require('../dboperation');
+const { response } = require('../app');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -25,10 +27,11 @@ router.get("/getdata_byQuery", function (req, res, next) {
   });
 });
 
-router.post("/post", function (req, res, next) {
-  sql.post().then((result) => {
-    res.json(result[0]);
-  });
+router.route("/orders").post((request, response) => {
+  let order = {...request.body}
+  dboperation.addorder(order).then(result => {
+    response.status(201).json(result);
+  })
 });
 
 
